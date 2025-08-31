@@ -2,6 +2,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import project1 from "./projects/project1.png";
 import project2 from "./projects/project2.png";
 import project3 from "./projects/project3.png";
+import project4 from "./projects/project4.png";
 
 const projects = [
   {
@@ -33,6 +34,16 @@ const projects = [
     demoUrl: "#",
     githubUrl: "#",
   },
+  {
+    id: 4,
+    title: "TinyTerms.ai",
+    description: 
+      "A website that explains complex tech terms in simple language like you're five.",
+    image: project4,
+    tags: ["React, TypeScript, TailwindCSS, Vite"],
+    demoUrl: "https://tinyterms.ai.netlify.app",
+    githubUrl: "#",
+  }
 ];
 
 export const ProjectsSection = () => {
