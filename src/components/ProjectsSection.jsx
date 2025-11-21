@@ -43,6 +43,33 @@ const projects = [
     tags: ["React, TypeScript, TailwindCSS, Vite"],
     demoUrl: "https://tinyterms.ai.netlify.app",
     githubUrl: "#",
+  },
+  {
+    id: 5,
+    title: "DreamScape",
+    description: "DreamScape is an AI-driven sleep-learning engine that transforms uploaded documents into adaptive, voice-narrated cues designed to accelerate memory consolidation overnight.",
+    image: project5,
+    tags: ["React Native, Expo, Typescript, AsyncStorage, Gemini, ElevenLabs"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/LamVu22/MakeUC-DreamScape"
+  },
+  {
+    id: 6,
+    title: "FalconGraph Search",
+    description: "An AI-powered semantic search engine that combines web-scale graph navigation with vector embeddings and RAG pipelines to deliver accurate, context-aware answers from crawled BGSU resources.",
+    image: project6,
+    tags: ["Next.js, TailwinCSS, DaisyUI, Pinecone, OpenAI, Tavily, FastAPI, FAISS, RAG"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/LamVu22/BGSUHackathon"
+  },
+  {
+    id: 7,
+    title: "EcoCT", 
+    description: "An AI-driven environmental intelligence system that unifies real-time air, marine, and climate analytics through a multi-agent architecture built on Fetch.ai.",
+    image: project7,
+    tags: ["uAgents, Fetch.ai, Streamlit, Python, FastAPI, OpenMeteo API, OpenAQ, Gemini, OpenAI"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/LamVu22/EcoCT"
   }
 ];
 
