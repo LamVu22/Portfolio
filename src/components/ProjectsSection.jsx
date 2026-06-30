@@ -6,7 +6,7 @@ import project4 from "./projects/project4.png";
 import project5 from "./projects/project5.png";
 import project6 from "./projects/project6.png";
 import project7 from "./projects/project7.png";
-
+import project8 from "./projects/project8.png";
 
 const projects = [
   {
@@ -74,6 +74,15 @@ const projects = [
     tags: ["uAgents, Fetch.ai, Streamlit, Python, FastAPI, OpenMeteo API, OpenAQ, Gemini, OpenAI"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/EcoCT"
+  },
+  {
+    id: 8,
+    title: "AgentA",
+    description: "a privacy-focused multi-agent AI study planner that connects to Canvas LMS, analyzes upcoming assignments, prioritizes deadlines, and generates personalized day-by-day study schedules.",
+    image: project8,
+    tags: ["CanvasAPI, Python, CrewAI, Ollama"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/LamVu22/AgentDa"
   }
 ];
 
