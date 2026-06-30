@@ -59,7 +59,7 @@ const projects = [
   },
   {
     id: 6,
-    title: "FalconGraph Search",
+    title: "FalconGraph",
     description: "An AI-powered semantic search engine that combines web-scale graph navigation with vector embeddings and RAG pipelines to deliver accurate, context-aware answers from crawled BGSU resources.",
     image: project6,
     tags: ["Next.js, TailwinCSS, DaisyUI, Pinecone, OpenAI, Tavily, FastAPI, FAISS, RAG"],
@@ -69,7 +69,7 @@ const projects = [
   {
     id: 7,
     title: "EcoCT", 
-    description: "An AI-driven environmental intelligence system that unifies real-time air, marine, and climate analytics through a multi-agent architecture built on Fetch.ai.",
+    description: "Hack Dearborn 3 Track Winner. An AI-driven environmental intelligence system that unifies real-time air, marine, and climate analytics through a multi-agent architecture built on Fetch.ai.",
     image: project7,
     tags: ["uAgents, Fetch.ai, Streamlit, Python, FastAPI, OpenMeteo API, OpenAQ, Gemini, OpenAI"],
     demoUrl: "#",

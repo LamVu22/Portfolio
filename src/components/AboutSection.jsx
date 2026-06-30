@@ -16,7 +16,7 @@ export const AboutSection = () => {
             </h3>
 
             <p className="text-muted-foreground">
-              I'm a Computer Science student specializing in Computational Data
+              I'm a Computer Science graduate specializing in Computational Data
               Science. I like building practical AI and data tools, from
               LLM-powered applications to dashboards that turn messy
               information into something people can actually use.
@@ -26,7 +26,7 @@ export const AboutSection = () => {
               I also enjoy the full-stack side of the work: designing APIs,
               connecting data pipelines, and shipping clean interfaces that make
               the underlying intelligence easy to understand. My goal is to build
-              systems that are technically solid, useful, and clear.
+              systems that are technically solid, useful, and clear to help enterprises with their goals.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">

@@ -12,7 +12,7 @@ export const HeroSection = () => {
             <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
-              Tony
+              Lam
             </span>
             <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
               {" "}
@@ -21,8 +21,8 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I'm a senior at BGSU studying Computer Science, with a passion for
-            Machine Learning models and AI.
+            I'm a BGSU graduate majored in Computer Science, with a passion for
+            LLM models and AI.
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
