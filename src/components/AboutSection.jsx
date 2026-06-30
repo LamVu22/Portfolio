@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react";
+import { BrainCircuit, Code, User } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -6,33 +6,33 @@ export const AboutSection = () => {
       {" "}
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          About <span className="text-primary"> Me</span>
+          About <span className="text-primary"> Myself</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Data-driven Developer & Full Stack Problem Solver
+              AI & Data-Focused Full Stack Developer
             </h3>
 
             <p className="text-muted-foreground">
-              I'm a Computer Science student specializing 
-              in Computational Data Science, with passion for AI and ML and hands-on experience 
-              building full-stack applications, real-time detection systems, 
-              and dynamic dashboards that drive operational insights.
+              I'm a Computer Science student specializing in Computational Data
+              Science. I like building practical AI and data tools, from
+              LLM-powered applications to dashboards that turn messy
+              information into something people can actually use.
             </p>
 
             <p className="text-muted-foreground">
-              From designing scalable APIs and data visualizations to deploying 
-              client-facing tools, I’m passionate about turning complex data 
-              and system requirements into efficient, user-centered solutions—always 
-              with a focus on impact and clarity.
+              I also enjoy the full-stack side of the work: designing APIs,
+              connecting data pipelines, and shipping clean interfaces that make
+              the underlying intelligence easy to understand. My goal is to build
+              systems that are technically solid, useful, and clear.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
                 {" "}
-                Get In Touch
+                Get In Touch with meee
               </a>
 
               <a
@@ -40,7 +40,7 @@ export const AboutSection = () => {
                 download="Vu_Resume.pdf"
                 className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
               >
-                Download CV
+                Download resume
               </a>
             </div>
           </div>
@@ -77,14 +77,14 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary" />
+                  <BrainCircuit className="h-6 w-6 text-primary" />
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">Project Management</h4>
+                  <h4 className="font-semibold text-lg">AI & ML Systems</h4>
                   <p className="text-muted-foreground">
-                    Leading projects from conception to completion with agile
-                    methodologies.
+                    Applying machine learning, computer vision, and AI APIs to
+                    build tools that solve real problems.
                   </p>
                 </div>
               </div>
