@@ -7,6 +7,7 @@ import project5 from "./projects/project5.png";
 import project6 from "./projects/project6.png";
 import project7 from "./projects/project7.png";
 import project8 from "./projects/project8.png";
+import project9 from "./projects/project9.png";
 
 const projects = [
   {
@@ -83,6 +84,15 @@ const projects = [
     tags: ["CanvasAPI, Python, CrewAI, Ollama"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/AgentDa"
+  },
+  {
+    id: 9,
+    title: "CrytoSense",
+    description: "A multi-agent crypto analysis tool that turns a natural-language prompt into a markdown report combining historical price trends, volatility, momentum, and recent news sentiment.",
+    image: project9,
+    tags: ["Exa, Yfinance, LangChain, GPT"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/LamVu22/CryptoSense"
   }
 ];
 
