@@ -1,99 +1,177 @@
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { Gitlab } from "lucide-react";
+import {
+  Bot,
+  BrainCircuit,
+  Cloud,
+  Code2,
+  Database,
+  Wrench,
+} from "lucide-react";
 
-const skills = [
-  // Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 80, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
-
-  // Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
-  { name: "GraphQL", level: 60, category: "backend" },
-
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Gitlab", level: 85, category: "tools" },
-  { name: "Docker", level: 70, category: "tools" },
-  { name: "Figma", level: 50, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
-  { name: "Power BI", level: 80, category: "tools" },
-
-
-  // AI & ML
-  { name: "Python", level: 95, category: "AI & ML" },
-  { name: "TensorFlow", level: 85, category: "AI & ML" },
-  { name: "PyTorch", level: 80, category: "AI & ML" },
-  { name: "Scikit-learn", level: 75, category: "AI & ML" },
-  { name: "OpenCV", level: 70, category: "AI & ML" },
-  { name: "Pandas", level: 90, category: "AI & ML" },
-  { name: "NumPy", level: 90, category: "AI & ML" },
-
+const skillStacks = [
+  {
+    title: "AI + Machine Learning",
+    icon: BrainCircuit,
+    items: [
+      "Python",
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn",
+      "OpenCV",
+      "YOLO",
+      "Pandas",
+      "NumPy",
+      "RAG",
+      "LangChain",
+    ],
+  },
+  {
+    title: "Full-Stack Web",
+    icon: Code2,
+    reverse: true,
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Vite",
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "GraphQL",
+    ],
+  },
+  {
+    title: "Data + Analytics",
+    icon: Database,
+    items: [
+      "SQL",
+      "PostgreSQL",
+      "MongoDB",
+      "SQLite",
+      "Power BI",
+      "DAX",
+      "Power Query",
+      "Dashboards",
+      "ETL",
+      "Data Modeling",
+    ],
+  },
+  {
+    title: "AI Product Tools",
+    icon: Bot,
+    reverse: true,
+    items: [
+      "OpenAI",
+      "Gemini",
+      "ElevenLabs",
+      "CrewAI",
+      "Ollama",
+      "Pinecone",
+      "FAISS",
+      "Tavily",
+      "Fetch.ai",
+      "uAgents",
+    ],
+  },
+  {
+    title: "Cloud + Developer Workflow",
+    icon: Cloud,
+    items: [
+      "Docker",
+      "Git",
+      "GitHub",
+      "GitLab",
+      "CUDA",
+      "FastAPI",
+      "Streamlit",
+      "Canvas API",
+      "Expo",
+      "AsyncStorage",
+    ],
+  },
+  {
+    title: "Core Toolkit",
+    icon: Wrench,
+    reverse: true,
+    items: [
+      "HTML/CSS",
+      "Figma",
+      "VS Code",
+      "React Native",
+      "API Design",
+      "Authentication",
+      "Responsive UI",
+      "Automation",
+      "Prototyping",
+      "Debugging",
+    ],
+  },
 ];
 
-const categories = ["all", "frontend", "backend", "tools", "AI & ML"];
+const SkillBelt = ({ stack }) => {
+  const Icon = stack.icon;
+  const repeatedItems = [...stack.items, ...stack.items];
+
+  return (
+    <div className="group relative overflow-hidden border-y border-border/70 bg-card/70 py-5 shadow-sm">
+      <div className="container mx-auto max-w-6xl">
+        <div className="mb-4 flex items-center gap-3 text-left">
+          <span className="flex h-9 w-9 items-center justify-center rounded-md border border-primary/25 bg-primary/10 text-primary">
+            <Icon className="h-5 w-5" />
+          </span>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            {stack.title}
+          </h3>
+        </div>
+      </div>
+
+      <div className="relative flex overflow-hidden">
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-background to-transparent" />
+
+        <div
+          className={
+            stack.reverse
+              ? "flex min-w-max animate-skill-belt-reverse gap-3 px-3 group-hover:[animation-play-state:paused]"
+              : "flex min-w-max animate-skill-belt gap-3 px-3 group-hover:[animation-play-state:paused]"
+          }
+        >
+          {repeatedItems.map((item, index) => (
+            <span
+              key={`${stack.title}-${item}-${index}`}
+              className="inline-flex h-11 min-w-28 items-center justify-center rounded-md border border-border bg-background/85 px-5 text-sm font-medium text-foreground shadow-xs transition-colors duration-300 hover:border-primary/60 hover:text-primary"
+              aria-hidden={index >= stack.items.length}
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
   return (
-    <section id="skills" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-          My <span className="text-primary"> Skills</span>
+    <section id="skills" className="relative py-24">
+      <div className="container mx-auto max-w-5xl px-4 text-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-primary">
+          Toolkit
+        </p>
+        <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+          Tools I use to <span className="text-primary">build AI products</span>
         </h2>
+        <p className="mx-auto mb-12 max-w-2xl text-muted-foreground">
+          A moving stack of the languages, frameworks, data tools, and AI
+          services I reach for across full-stack apps, analytics, and applied ML.
+        </p>
+      </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full transition-colors duration-300 capitalize",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary/70 text-forefround hover:bd-secondary"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
-            >
-              <div className="text-left mb-4">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
-              </div>
-              <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
-                <div
-                  className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
-                  style={{ width: skill.level + "%" }}
-                />
-              </div>
-
-              <div className="text-right mt-1">
-                <span className="text-sm text-muted-foreground">
-                  {skill.level}%
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="space-y-5">
+        {skillStacks.map((stack) => (
+          <SkillBelt key={stack.title} stack={stack} />
+        ))}
       </div>
     </section>
   );
