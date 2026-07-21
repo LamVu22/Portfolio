@@ -45,7 +45,7 @@ const projects = [
     description: 
       "A website that explains complex tech terms in simple language like you're five.",
     image: project4,
-    tags: ["React, TypeScript, TailwindCSS, Vite"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
     demoUrl: "https://tinyterms.ai.netlify.app",
     githubUrl: "#",
   },
@@ -54,7 +54,7 @@ const projects = [
     title: "DreamScape",
     description: "DreamScape is an AI-driven sleep-learning engine that transforms uploaded documents into adaptive, voice-narrated cues designed to accelerate memory consolidation overnight.",
     image: project5,
-    tags: ["React Native, Expo, Typescript, AsyncStorage, Gemini, ElevenLabs"],
+    tags: ["React Native", "Expo", "TypeScript", "AsyncStorage", "Gemini", "ElevenLabs"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/MakeUC-DreamScape"
   },
@@ -63,7 +63,7 @@ const projects = [
     title: "FalconGraph",
     description: "An AI-powered semantic search engine that combines web-scale graph navigation with vector embeddings and RAG pipelines to deliver accurate, context-aware answers from crawled BGSU resources.",
     image: project6,
-    tags: ["Next.js, TailwinCSS, DaisyUI, Pinecone, OpenAI, Tavily, FastAPI, FAISS, RAG"],
+    tags: ["Next.js", "Tailwind CSS", "DaisyUI", "Pinecone", "OpenAI", "Tavily", "FastAPI", "FAISS", "RAG"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/BGSUHackathon"
   },
@@ -72,25 +72,25 @@ const projects = [
     title: "EcoCT", 
     description: "Hack Dearborn 3 Track Winner. An AI-driven environmental intelligence system that unifies real-time air, marine, and climate analytics through a multi-agent architecture built on Fetch.ai.",
     image: project7,
-    tags: ["uAgents, Fetch.ai, Streamlit, Python, FastAPI, OpenMeteo API, OpenAQ, Gemini, OpenAI"],
+    tags: ["uAgents", "Fetch.ai", "Streamlit", "Python", "FastAPI", "OpenMeteo API", "OpenAQ", "Gemini", "OpenAI"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/EcoCT"
   },
   {
     id: 8,
     title: "AgentA",
-    description: "a privacy-focused multi-agent AI study planner that connects to Canvas LMS, analyzes upcoming assignments, prioritizes deadlines, and generates personalized day-by-day study schedules.",
+    description: "A privacy-focused multi-agent AI study planner that connects to Canvas LMS, analyzes upcoming assignments, prioritizes deadlines, and generates personalized day-by-day study schedules.",
     image: project8,
-    tags: ["CanvasAPI, Python, CrewAI, Ollama"],
+    tags: ["Canvas API", "Python", "CrewAI", "Ollama"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/AgentDa"
   },
   {
     id: 9,
-    title: "CrytoSense",
+    title: "CryptoSense",
     description: "A multi-agent crypto analysis tool that turns a natural-language prompt into a markdown report combining historical price trends, volatility, momentum, and recent news sentiment.",
     image: project9,
-    tags: ["Exa, Yfinance, LangChain, GPT"],
+    tags: ["Exa", "YFinance", "LangChain", "GPT"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/CryptoSense"
   }
@@ -111,9 +111,9 @@ export const ProjectsSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
+          {projects.map((project) => (
             <div
-              key={key}
+              key={project.id}
               className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
             >
               <div className="h-48 overflow-hidden">
@@ -127,7 +127,10 @@ export const ProjectsSection = () => {
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                    <span
+                      key={`${project.id}-${tag}`}
+                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                    >
                       {tag}
                     </span>
                   ))}
