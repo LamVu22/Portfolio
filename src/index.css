@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -9,6 +10,15 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
 
   --color-card: hsl(var(--card));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-coral: hsl(var(--coral));
+  --color-status: hsl(var(--status));
+
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
@@ -82,31 +92,44 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 150 12% 97%;
+    --foreground: 220 26% 11%;
 
     --card: 0 0% 100%;
 
-    --primary: 174 72% 32%;
+    --primary: 187 100% 32%;
     --primary-foreground: 210 40% 98%;
+    --muted-foreground: 215 14% 38%;
+    --secondary: 190 28% 94%;
+    --secondary-foreground: 222 35% 14%;
+    --accent: 44 100% 63%;
+    --coral: 6 100% 67%;
+    --status: 145 64% 40%;
 
-    --border: 214 32% 91%;
+    --border: 190 18% 80%;
   }
 
   .dark {
-    --background: 222 47% 4%;
-    --foreground: 213 31% 91%;
+    --background: 220 16% 7%;
+    --foreground: 210 20% 94%;
 
-    --card: 222 47% 8%;
+    --card: 220 14% 10%;
 
-    --primary: 174 70% 42%;
+    --primary: 187 84% 50%;
     --primary-foreground: 213 31% 91%;
+    --muted-foreground: 215 13% 66%;
+    --secondary: 220 12% 14%;
+    --secondary-foreground: 210 20% 94%;
+    --accent: 43 96% 58%;
+    --coral: 6 88% 67%;
+    --status: 145 65% 54%;
 
-    --border: 217 33% 20%;
+    --border: 218 13% 23%;
   }
 
   * {
     @apply border-border;
+    letter-spacing: 0 !important;
   }
 
   html {
@@ -115,7 +138,16 @@
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    font-family: var(--font-sans);
     font-feature-settings: "rlig" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
   }
 }
 
@@ -157,9 +189,250 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+  @apply px-6 py-2 rounded-sm bg-primary text-primary-foreground font-medium 
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(20,184,166,0.45)]
          hover:scale-105 active:scale-95;
+}
+
+@utility lab-button {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-primary hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary;
+}
+
+@utility lab-button-primary {
+  @apply border-primary bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground;
+  box-shadow: 4px 4px 0 hsl(var(--accent));
+}
+
+@utility mission-panel {
+  @apply border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60;
+  border-radius: 4px;
+  box-shadow: 5px 5px 0 hsl(var(--border));
+}
+
+@utility day-band-cool {
+  background-color: hsl(var(--secondary) / 0.72);
+  background-image: radial-gradient(
+    circle,
+    hsl(var(--primary) / 0.16) 1px,
+    transparent 1.25px
+  );
+  background-size: 18px 18px;
+}
+
+@utility day-band-white {
+  background-color: hsl(var(--card));
+}
+
+@utility future-loader {
+  @apply border border-dashed border-primary/50 bg-card p-5;
+  box-shadow: 4px 4px 0 hsl(var(--accent));
+}
+
+@utility section-kicker {
+  @apply mb-3 font-mono text-xs font-semibold uppercase text-primary;
+}
+
+@utility lab-grid {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.34) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.34) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: center top;
+  mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+}
+
+.avatar-stage::after {
+  position: absolute;
+  top: 12px;
+  right: -12px;
+  bottom: -12px;
+  left: 12px;
+  content: "";
+  border: 1px solid hsl(var(--accent));
+  border-radius: 2px;
+}
+
+.avatar-idle {
+  animation: avatar-idle 5s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+.avatar-orbit {
+  animation: orbit-spin 28s linear infinite;
+}
+
+.data-float {
+  animation: data-float 4s ease-in-out infinite;
+}
+
+.lamp-switch {
+  position: fixed;
+  top: 0;
+  right: 4rem;
+  z-index: 50;
+  width: 2.75rem;
+  height: 6.75rem;
+  cursor: grab;
+  color: hsl(var(--foreground));
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.lamp-switch:active {
+  cursor: grabbing;
+}
+
+.lamp-switch:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: -2px;
+}
+
+.lamp-cord {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 3.7rem;
+  background: repeating-linear-gradient(
+    to bottom,
+    hsl(var(--foreground) / 0.65) 0 3px,
+    transparent 3px 6px
+  );
+  transform: translateX(-50%);
+  transition: height 180ms ease-out;
+}
+
+.lamp-handle {
+  position: absolute;
+  top: 3.55rem;
+  left: 50%;
+  display: flex;
+  width: 1.75rem;
+  height: 2.15rem;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid hsl(var(--foreground) / 0.7);
+  border-radius: 45% 45% 38% 38%;
+  background: hsl(var(--card));
+  box-shadow: 3px 3px 0 hsl(var(--border));
+  transform: translateX(-50%);
+  transition:
+    top 180ms ease-out,
+    background-color 220ms ease,
+    color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.lamp-switch.is-light .lamp-handle {
+  color: hsl(var(--foreground));
+  background: hsl(var(--accent));
+  box-shadow: 3px 3px 0 hsl(var(--coral));
+}
+
+.lamp-switch.is-dark .lamp-handle {
+  color: hsl(var(--primary));
+  background: hsl(var(--card));
+}
+
+.lamp-switch:hover .lamp-handle {
+  border-color: hsl(var(--primary));
+}
+
+.lamp-switch.is-pulling .lamp-cord {
+  height: 5rem;
+}
+
+.lamp-switch.is-pulling .lamp-handle {
+  top: 4.85rem;
+}
+
+@media (width >= 640px) {
+  .lamp-switch {
+    right: 1.15rem;
+  }
+}
+
+.company-mark {
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.experience-entry:hover .company-mark {
+  transform: translateY(-3px) rotate(-2deg);
+  box-shadow: 3px 3px 0 hsl(var(--accent));
+}
+
+.loading-segment {
+  animation: loading-segment 1.6s steps(1, end) infinite;
+}
+
+.loading-segment:nth-child(2n) {
+  animation-delay: 200ms;
+}
+
+.loading-segment:nth-child(3n) {
+  animation-delay: 400ms;
+}
+
+.skill-chip:nth-child(3n + 1) {
+  border-color: hsl(var(--primary) / 0.55);
+}
+
+.skill-chip:nth-child(3n + 2) {
+  border-color: hsl(var(--coral) / 0.55);
+}
+
+.skill-chip:nth-child(3n) {
+  border-color: hsl(var(--accent) / 0.9);
+}
+
+.project-card:nth-child(odd):hover {
+  transform: translateY(-5px) rotate(-0.35deg);
+}
+
+.project-card:nth-child(even):hover {
+  transform: translateY(-5px) rotate(0.35deg);
+}
+
+@keyframes avatar-idle {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(0.25deg);
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes data-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-7deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(7deg);
+  }
+}
+
+@keyframes loading-segment {
+  0%,
+  35% {
+    background: hsl(var(--primary));
+  }
+  36%,
+  70% {
+    background: hsl(var(--accent));
+  }
+  71%,
+  100% {
+    background: hsl(var(--coral));
+  }
 }
 
 @utility star {
@@ -209,9 +482,38 @@
   display: none;
 }
 
+.dark .day-band-cool,
+.dark .day-band-white {
+  background-color: transparent;
+  background-image: none;
+}
+
+.dark .mission-panel,
+.dark .future-loader {
+  box-shadow: 0 1px 2px hsl(0 0% 0% / 0.25);
+}
+
+.dark .skill-chip {
+  border-color: hsl(var(--border));
+}
+
 #root {
   max-width: 100%;
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

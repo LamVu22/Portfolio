@@ -1,6 +1,7 @@
 const skillBelts = [
   {
     label: "Languages + Data",
+    labelClass: "border-primary bg-primary/10 text-primary",
     items: [
       "Python",
       "TypeScript",
@@ -21,6 +22,7 @@ const skillBelts = [
   },
   {
     label: "AI + Product Stack",
+    labelClass: "border-coral bg-coral/10 text-coral",
     reverse: true,
     items: [
       "TensorFlow",
@@ -49,14 +51,14 @@ const BeltGroup = ({ belt, groupIndex }) => (
     className="flex shrink-0 items-center gap-3 px-3"
     aria-hidden={groupIndex > 0}
   >
-    <span className="mr-2 inline-flex h-10 items-center rounded-md border border-primary/25 bg-primary/10 px-4 text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+    <span className={`mr-2 inline-flex h-10 items-center rounded-sm border px-4 text-xs font-semibold uppercase ${belt.labelClass}`}>
       {belt.label}
     </span>
 
     {belt.items.map((item) => (
       <span
         key={`${belt.label}-${groupIndex}-${item}`}
-        className="inline-flex h-10 items-center rounded-md border border-border bg-card/85 px-4 text-sm font-medium text-foreground shadow-xs transition-colors duration-300 hover:border-primary/60 hover:text-primary"
+        className="skill-chip inline-flex h-10 items-center rounded-sm border bg-card/90 px-4 text-sm font-medium text-foreground shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:text-primary"
       >
         {item}
       </span>

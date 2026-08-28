@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
+  { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
@@ -16,7 +17,7 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -25,28 +26,31 @@ export const Navbar = () => {
   return (
     <nav
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed w-full z-40 border-b transition-all duration-300",
+        isScrolled
+          ? "border-border bg-background/90 py-3 backdrop-blur-md"
+          : "border-transparent py-5"
       )}
     >
       <div className="container flex items-center justify-between">
         <a
-          className="text-xl font-bold text-primary flex items-center"
+          className="flex items-center gap-3"
           href="#hero"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Lam Vu </span>{" "}
-            Portfolio
+          <span className="flex h-8 w-8 items-center justify-center bg-primary font-mono text-sm font-bold text-primary-foreground">LV</span>
+          <span className="text-left leading-tight">
+            <span className="block text-sm font-semibold text-foreground">Lam Vu</span>
+            <span className="block font-mono text-[9px] uppercase text-muted-foreground">AI Engineer</span>
           </span>
         </a>
 
         {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden items-center gap-7 md:flex">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="font-mono text-xs uppercase text-foreground/70 transition-colors duration-300 hover:text-primary"
             >
               {item.name}
             </a>
@@ -65,7 +69,7 @@ export const Navbar = () => {
 
         <div
           className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
+            "fixed inset-0 z-40 flex flex-col items-center justify-center bg-background/95 backdrop-blur-md",
             "transition-all duration-300 md:hidden",
             isMenuOpen
               ? "opacity-100 pointer-events-auto"

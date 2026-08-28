@@ -1,11 +1,14 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export const ThemeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isPulling, setIsPulling] = useState(false);
+  const timersRef = useRef([]);
 
   useEffect(() => {
+    const timers = timersRef.current;
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme === "dark") {
       setIsDarkMode(true);
@@ -14,33 +17,46 @@ export const ThemeToggle = () => {
       localStorage.setItem("theme", "light");
       setIsDarkMode(false);
     }
+    return () => {
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
   }, []);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
+    if (isPulling) return;
+
+    setIsPulling(true);
+
+    const themeTimer = window.setTimeout(() => {
+      setIsDarkMode((currentMode) => {
+        const nextMode = !currentMode;
+        document.documentElement.classList.toggle("dark", nextMode);
+        localStorage.setItem("theme", nextMode ? "dark" : "light");
+        return nextMode;
+      });
+    }, 160);
+
+    const resetTimer = window.setTimeout(() => setIsPulling(false), 440);
+    timersRef.current.push(themeTimer, resetTimer);
   };
 
   return (
     <button
       onClick={toggleTheme}
+      disabled={isPulling}
+      aria-pressed={isDarkMode}
+      aria-label={isDarkMode ? "Pull to turn the lights on" : "Pull to turn the lights off"}
+      title={isDarkMode ? "Pull to turn the lights on" : "Pull to turn the lights off"}
       className={cn(
-        "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
+        "lamp-switch",
+        isPulling && "is-pulling",
+        isDarkMode ? "is-dark" : "is-light"
       )}
     >
-      {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-      ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
-      )}
+      <span className="lamp-cord" aria-hidden="true" />
+      <span className="lamp-handle" aria-hidden="true">
+        {isDarkMode ? <Moon className="h-3.5 w-3.5" /> : <Sun className="h-3.5 w-3.5" />}
+      </span>
     </button>
   );
 };

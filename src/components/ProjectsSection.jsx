@@ -12,7 +12,7 @@ import project9 from "./projects/project9.png";
 const projects = [
   {
     id: 1,
-    title: "Customer Tracking System",
+    title: "Customer Management System",
     description: "Built a full-stack platform to manage household data, donations, and client visits in real time, streamlining community service operations and reporting.",
     image: project1,
     tags: ["Next.js", "Node.js", "REST API", "SQLite", "React", "TypeScript"],
@@ -98,25 +98,28 @@ const projects = [
 
 export const ProjectsSection = () => {
   return (
-    <section id="projects" className="py-24 px-4 relative">
+    <section id="projects" className="day-band-cool relative px-4 py-24">
       <div className="container mx-auto max-w-5xl">
+        <p className="section-kicker text-center">Mission archive</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
-          Featured <span className="text-primary"> Projects </span>
+          Selected <span className="text-primary">builds</span>
         </h2>
 
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Here are some of my recent projects. Each project was carefully
-          crafted with attention to detail, performance, and user experience.
+          Experiments and products where models, data, and interfaces meet real
+          problems.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div
               key={project.id}
-              className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover"
+              className="project-card group mission-panel overflow-hidden"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="relative h-48 overflow-hidden border-b border-border">
+                <span className="absolute left-3 top-3 z-10 bg-background/90 px-2 py-1 font-mono text-[10px] uppercase text-primary backdrop-blur-sm">
+                  Mission {String(project.id).padStart(2, "0")}
+                </span>
                 <img
                   src={project.image}
                   alt={project.title}
@@ -129,7 +132,7 @@ export const ProjectsSection = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={`${project.id}-${tag}`}
-                      className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground"
+                      className="border border-border bg-background px-2 py-1 font-mono text-[10px] font-medium uppercase text-muted-foreground"
                     >
                       {tag}
                     </span>
@@ -145,6 +148,8 @@ export const ProjectsSection = () => {
                     <a
                       href={project.demoUrl}
                       target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${project.title} demo`}
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <ExternalLink size={20} />
@@ -152,6 +157,8 @@ export const ProjectsSection = () => {
                     <a
                       href={project.githubUrl}
                       target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${project.title} source code`}
                       className="text-foreground/80 hover:text-primary transition-colors duration-300"
                     >
                       <Github size={20} />
@@ -165,11 +172,12 @@ export const ProjectsSection = () => {
 
         <div className="text-center mt-12">
           <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2"
+            className="lab-button lab-button-primary mx-auto w-fit"
             target="_blank"
+            rel="noreferrer"
             href="https://github.com/LamVu22"
           >
-            Check My Github <ArrowRight size={16} />
+            Continue on GitHub <ArrowRight size={16} />
           </a>
         </div>
       </div>
