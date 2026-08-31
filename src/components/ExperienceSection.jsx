@@ -1,7 +1,7 @@
 import { BriefcaseBusiness, MapPin } from "lucide-react";
 import magicHourLogo from "../assets/companies/MH.png";
 import bgsuLogo from "../assets/companies/bgsu.svg";
-import senecioLogo from "../assets/companies/senecio.png.avif";
+import senecioLogo from "../assets/companies/senecio.png";
 import KPMGlogo from "../assets/companies/KPMG.png";
 
 const experiences = [
@@ -54,6 +54,24 @@ const experiences = [
       "Created Power BI dashboards for more than five departments with role-based access control.",
     ],
     tools: ["Python", "SQL", "Power BI", "ETL", "Data Modeling"],
+  },
+  {
+    company: "BGSU Bursar Office",
+    logo: bgsuLogo,
+    role: "Clerical Assistant",
+    dates: "October 2023 - April 2024",
+    location: "Bowling Green, Ohio",
+    nodeClass: "bg-accent",
+    highlights: [
+      "Maintained student account documentation through accurate data entry and organized financial records.",
+      "Assisted students and staff with billing and payment questions while handling sensitive information confidentially.",
+    ],
+    tools: [
+      "Microsoft Excel",
+      "Data Entry",
+      "Records Management",
+      "Customer Service",
+    ],
   },
   {
     company: "KPMG",
