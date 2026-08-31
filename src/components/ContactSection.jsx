@@ -4,11 +4,19 @@ import {
   Mail,
   MapPin,
   Phone,
+  Pointer,
   Send,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+
+const keyboardRows = [
+  ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
+  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  ["Z", "X", "C", "V", "B", "N", "M"],
+  ["SPACE"],
+];
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -91,15 +99,19 @@ export const ContactSection = () => {
 
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/lam-an-bao-vu/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-primary hover:text-primary">
+              <div className="social-links relative flex w-fit gap-4 pb-10">
+                <a href="https://www.linkedin.com/in/lam-an-bao-vu/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-link social-link-linkedin flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-primary hover:text-primary">
                   <Linkedin />
                 </a>
                 
-                <a href="https://www.instagram.com/_.blam/" target="_blank" rel="noreferrer" aria-label="Instagram" className="flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-primary hover:text-primary">
+                <a href="https://www.instagram.com/_.blam/" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link social-link-instagram flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-coral hover:text-coral">
                   <Instagram />
                 </a>
-                
+
+                <Pointer
+                  className="social-hand pointer-events-none absolute left-2 top-8 z-10 h-6 w-6 text-foreground drop-shadow-sm"
+                  aria-hidden="true"
+                />
               </div>
             </div>
           </div>
@@ -110,8 +122,8 @@ export const ContactSection = () => {
           >
             <h3 className="text-2xl font-semibold mb-6"> Shoot me a message</h3>
 
-            <form className="space-y-6">
-              <div>
+            <form className="contact-form-animation relative space-y-6">
+              <div className="contact-field contact-field-name">
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
@@ -129,7 +141,7 @@ export const ContactSection = () => {
                 />
               </div>
 
-              <div>
+              <div className="contact-field contact-field-email">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
@@ -174,6 +186,33 @@ export const ContactSection = () => {
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
+
+              <div className="typing-station" aria-hidden="true">
+                <div className="keyboard-shell">
+                  {keyboardRows.map((row, rowIndex) => (
+                    <div
+                      key={row.join("")}
+                      className={`keyboard-row keyboard-row-${rowIndex + 1}`}
+                    >
+                      {row.map((key) => (
+                        <span
+                          key={key}
+                          className={`typing-key ${key === "SPACE" ? "typing-key-space" : ""}`}
+                        >
+                          {key === "SPACE" ? "" : key}
+                        </span>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+                <Pointer className="typing-hand typing-hand-left h-6 w-6 text-foreground" />
+                <Pointer className="typing-hand typing-hand-right h-6 w-6 text-foreground" />
+              </div>
+
+              <Pointer
+                className="form-journey-pointer pointer-events-none absolute h-6 w-6 text-foreground drop-shadow-sm"
+                aria-hidden="true"
+              />
             </form>
           </div>
         </div>

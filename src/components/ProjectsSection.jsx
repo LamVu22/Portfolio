@@ -1,5 +1,4 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
-import project1 from "./projects/project1.png";
 import project2 from "./projects/project2.png";
 import project3 from "./projects/project3.png";
 import project4 from "./projects/project4.png";
@@ -8,19 +7,11 @@ import project6 from "./projects/project6.png";
 import project7 from "./projects/project7.png";
 import project8 from "./projects/project8.png";
 import project9 from "./projects/project9.png";
+import dubbing from "./projects/dubbing.png";
 
 const projects = [
   {
     id: 1,
-    title: "Customer Management System",
-    description: "Built a full-stack platform to manage household data, donations, and client visits in real time, streamlining community service operations and reporting.",
-    image: project1,
-    tags: ["Next.js", "Node.js", "REST API", "SQLite", "React", "TypeScript"],
-    demoUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    id: 2,
     title: "Real-time Road Sign Detection System",
     description:
       "Designed and optimized a high-accuracy model to detect and classify road signs in real time, enhancing responsiveness in autonomous systems.",
@@ -30,7 +21,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 3,
+    id: 2,
     title: "KPI Dashboard",
     description:
       "Developed and optimized a comprehensive KPI dashboard to track operational performance across departments, enhancing data-driven decision-making and reducing manual reporting effort.",
@@ -40,7 +31,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 4,
+    id: 3,
     title: "TinyTerms.ai",
     description: 
       "A website that explains complex tech terms in simple language like you're five.",
@@ -50,7 +41,7 @@ const projects = [
     githubUrl: "#",
   },
   {
-    id: 5,
+    id: 4,
     title: "DreamScape",
     description: "DreamScape is an AI-driven sleep-learning engine that transforms uploaded documents into adaptive, voice-narrated cues designed to accelerate memory consolidation overnight.",
     image: project5,
@@ -59,7 +50,7 @@ const projects = [
     githubUrl: "https://github.com/LamVu22/MakeUC-DreamScape"
   },
   {
-    id: 6,
+    id: 5,
     title: "FalconGraph",
     description: "An AI-powered semantic search engine that combines web-scale graph navigation with vector embeddings and RAG pipelines to deliver accurate, context-aware answers from crawled BGSU resources.",
     image: project6,
@@ -68,7 +59,7 @@ const projects = [
     githubUrl: "https://github.com/LamVu22/BGSUHackathon"
   },
   {
-    id: 7,
+    id: 6,
     title: "EcoCT", 
     description: "Hack Dearborn 3 Track Winner. An AI-driven environmental intelligence system that unifies real-time air, marine, and climate analytics through a multi-agent architecture built on Fetch.ai.",
     image: project7,
@@ -77,7 +68,7 @@ const projects = [
     githubUrl: "https://github.com/LamVu22/EcoCT"
   },
   {
-    id: 8,
+    id: 7,
     title: "AgentA",
     description: "A privacy-focused multi-agent AI study planner that connects to Canvas LMS, analyzes upcoming assignments, prioritizes deadlines, and generates personalized day-by-day study schedules.",
     image: project8,
@@ -86,13 +77,22 @@ const projects = [
     githubUrl: "https://github.com/LamVu22/AgentDa"
   },
   {
-    id: 9,
+    id: 8,
     title: "CryptoSense",
     description: "A multi-agent crypto analysis tool that turns a natural-language prompt into a markdown report combining historical price trends, volatility, momentum, and recent news sentiment.",
     image: project9,
     tags: ["Exa", "YFinance", "LangChain", "GPT"],
     demoUrl: "#",
     githubUrl: "https://github.com/LamVu22/CryptoSense"
+  },
+  {
+    id: 9,
+    title: "DubFlow",
+    description: "Open-sourced AI Video Translation & Lip-Sync Dubbing Pipeline",
+    image: dubbing,
+    tags: ["LTX2.3", "TranslateGemma", "Whisper", "LoRA"],
+    demoUrl: "https://colab.research.google.com/drive/1JBEll2Ssh6UB4L9O26_y0t4oq401_eY7?usp=sharing",
+    githubUrl: "#"
   }
 ];
 

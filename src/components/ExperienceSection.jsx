@@ -8,7 +8,7 @@ const experiences = [
   {
     company: "Next chapter",
     mark: "?",
-    role: "Software Engineer",
+    role: "AI Engineer",
     dates: "Present",
     location: "To be discovered",
     isLoading: true,
@@ -21,7 +21,7 @@ const experiences = [
     logo: magicHourLogo,
     role: "Machine Learning Engineer Intern",
     dates: "January 2026 - May 2026",
-    location: "Oakland, California (Remote)",
+    location: "Oakland, California",
     nodeClass: "bg-primary",
     highlights: [
       "Improved multilingual video dubbing accuracy to 95% by optimizing an LLM-based translation and lip-sync pipeline.",
