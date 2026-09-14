@@ -3,14 +3,15 @@ import magicHourLogo from "../assets/companies/MH.png";
 import bgsuLogo from "../assets/companies/bgsu.svg";
 import senecioLogo from "../assets/companies/senecio.png";
 import KPMGlogo from "../assets/companies/KPMG.png";
+import ThunderSoftlogo from "../assets/companies/ThunderSoft.jpg";
 
 const experiences = [
   {
-    company: "Next chapter",
-    mark: "?",
-    role: "AI Engineer",
+    company: "ThunderSoft",
+    logo: ThunderSoftlogo,
+    role: "Agentic AI Developer",
     dates: "Present",
-    location: "To be discovered",
+    location: "Santa Clara, California",
     isLoading: true,
     nodeClass: "bg-accent",
     highlights: [],
@@ -94,16 +95,16 @@ const CompanyMark = ({ experience }) => (
       experience.isLoading ? "bg-card text-primary" : "bg-white"
     }`}
   >
-    {experience.isLoading ? (
-      <span className="animate-pulse font-mono text-lg font-semibold motion-reduce:animate-none">
-        {experience.mark}
-      </span>
-    ) : experience.logo ? (
+    {experience.logo ? (
       <img
         src={experience.logo}
         alt={`${experience.company} logo`}
         className="h-full w-full object-contain"
       />
+    ) : experience.isLoading ? (
+      <span className="animate-pulse font-mono text-lg font-semibold motion-reduce:animate-none">
+        {experience.mark}
+      </span>
     ) : (
       <span className="font-mono text-[9px] font-bold text-[#00338d]">
         {experience.mark}
@@ -156,23 +157,13 @@ export const ExperienceSection = () => {
 
               <div className="pl-12 text-left md:pl-0 md:pr-12">
                 <div className="mb-5 flex min-h-5 items-center gap-2 font-mono text-xs text-muted-foreground">
-                  {experience.isLoading ? (
-                    <>
-                      <span>{experience.dates}</span>
-                      <span aria-hidden="true">-</span>
-                      <span className="text-primary">Loading</span>
-                      <LoadingDots />
-                    </>
-                  ) : (
-                    <span>{experience.dates}</span>
-                  )}
+                  <span>{experience.dates}</span>
                 </div>
                 <div className="flex items-center gap-3">
                   <CompanyMark experience={experience} />
                   <div>
                     <h3 className="flex items-center gap-2 font-semibold text-foreground">
                       {experience.company}
-                      {experience.isLoading && <LoadingDots />}
                     </h3>
                     <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
                       <MapPin className="h-3 w-3" /> {experience.location}
