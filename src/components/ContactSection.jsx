@@ -90,9 +90,9 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                  <span className="text-muted-foreground hover:text-primary transition-colors">
                     Santa Clara, CA, USA
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -100,11 +100,11 @@ export const ContactSection = () => {
             <div className="pt-8">
               <h4 className="font-medium mb-4"> Connect With Me</h4>
               <div className="social-links relative flex w-fit gap-4 pb-10">
-                <a href="https://www.linkedin.com/in/lam-an-bao-vu/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="social-link social-link-linkedin flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-primary hover:text-primary">
+                <a href="https://www.linkedin.com/in/lam-an-bao-vu/" target="_blank" rel="noreferrer" aria-label="LinkedIn (opens in new tab)" className="social-link social-link-linkedin flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-primary hover:text-primary">
                   <Linkedin />
                 </a>
                 
-                <a href="https://www.instagram.com/_.blam/" target="_blank" rel="noreferrer" aria-label="Instagram" className="social-link social-link-instagram flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-coral hover:text-coral">
+                <a href="https://www.instagram.com/_.blam/" target="_blank" rel="noreferrer" aria-label="Instagram (opens in new tab)" className="social-link social-link-instagram flex h-10 w-10 items-center justify-center rounded-sm border border-border transition-colors hover:border-coral hover:text-coral">
                   <Instagram />
                 </a>
 
@@ -123,7 +123,7 @@ export const ContactSection = () => {
             <h3 className="text-2xl font-semibold mb-6"> Shoot me a message</h3>
 
             <form className="contact-form-animation relative space-y-6">
-              <div className="contact-field contact-field-name">
+              <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium mb-2"
@@ -136,12 +136,12 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none"
+                  className="w-full rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   placeholder="Nikola Tesla"
                 />
               </div>
 
-              <div className="contact-field contact-field-email">
+              <div>
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium mb-2"
@@ -154,7 +154,7 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none"
+                  className="w-full rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   placeholder="iamnoob@gmail.com"
                 />
               </div>
@@ -171,7 +171,7 @@ export const ContactSection = () => {
                   id="message"
                   name="message"
                   required
-                  className="min-h-32 w-full resize-none rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none"
+                  className="min-h-32 w-full resize-none rounded-sm border border-border bg-background px-4 py-3 focus:border-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   placeholder="Hello, I'd like to talk about..."
                 />
               </div>

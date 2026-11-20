@@ -69,7 +69,7 @@ export const AboutSection = () => {
                   <Bot className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">LLM Applications</h4>
+                  <h3 className="font-semibold text-lg">LLM Applications</h3>
                   <p className="text-muted-foreground">
                     Building AI assistants, semantic search, study planners, and
                     domain-specific tools powered by LLM APIs and agent
@@ -84,9 +84,9 @@ export const AboutSection = () => {
                   <DatabaseZap className="h-6 w-6 text-primary" />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
+                  <h3 className="font-semibold text-lg">
                     Retrieval & Data Pipelines
-                  </h4>
+                  </h3>
                   <p className="text-muted-foreground">
                     Connecting structured data, documents, embeddings, and APIs
                     so models can answer with useful context instead of generic
@@ -102,9 +102,9 @@ export const AboutSection = () => {
                 </div>
 
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">
+                  <h3 className="font-semibold text-lg">
                     Full-Stack AI Products
-                  </h4>
+                  </h3>
                   <p className="text-muted-foreground">
                     Shipping responsive interfaces, backend services, and model
                     integrations that make AI capabilities clear, testable, and

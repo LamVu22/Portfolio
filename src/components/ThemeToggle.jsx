@@ -43,9 +43,8 @@ export const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      disabled={isPulling}
       aria-pressed={isDarkMode}
-      aria-label={isDarkMode ? "Pull to turn the lights on" : "Pull to turn the lights off"}
+      aria-label="Dark mode"
       title={isDarkMode ? "Pull to turn the lights on" : "Pull to turn the lights off"}
       className={cn(
         "lamp-switch",

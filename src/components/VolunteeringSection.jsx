@@ -45,7 +45,7 @@ const VolunteerMark = ({ role }) => (
     {role.logo ? (
       <img
         src={role.logo}
-        alt={`${role.organization} logo`}
+        alt=""
         className="h-full w-full object-contain"
       />
     ) : (
@@ -70,10 +70,10 @@ export const VolunteeringSection = () => {
     >
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16 grid gap-4 text-left md:grid-cols-[0.38fr_0.62fr] md:items-end">
-          <p className="section-kicker mb-0 text-coral">Volunteering log</p>
+          <p className="section-kicker mb-0 text-coral-text">Volunteering log</p>
           <div>
             <h2 className="text-3xl font-bold md:text-4xl">
-              Beyond the job, for <span className="text-coral">the community.</span>
+              Beyond the job, for <span className="text-coral-text">the community.</span>
             </h2>
             <p className="mt-4 max-w-2xl text-muted-foreground">
               Organizations, causes, and communities I have contributed to.
@@ -90,6 +90,7 @@ export const VolunteeringSection = () => {
               className="experience-entry relative grid gap-7 border-b border-border py-10 first:pt-0 last:border-b-0 last:pb-0 md:grid-cols-[0.38fr_0.62fr] md:gap-0"
             >
               <span
+                aria-hidden="true"
                 className={`absolute left-[14px] z-10 h-3 w-3 rounded-full border-[3px] border-background md:left-[calc(38%_-_5px)] ${role.nodeClass} ${
                   index === 0 ? "top-1" : "top-12"
                 }`}
@@ -117,7 +118,7 @@ export const VolunteeringSection = () => {
 
                 {role.isPlaceholder ? (
                   <div className="border border-dashed border-coral/40 bg-coral/5 p-5">
-                    <p className="flex items-center gap-2 font-mono text-xs uppercase text-coral">
+                    <p className="flex items-center gap-2 font-mono text-xs uppercase text-coral-text">
                       Highlights loading <LoadingDots />
                     </p>
                     <div className="mt-4 grid grid-cols-8 gap-1" aria-hidden="true">

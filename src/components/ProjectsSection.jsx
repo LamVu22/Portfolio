@@ -122,7 +122,7 @@ export const ProjectsSection = () => {
                 </span>
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt=""
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -144,25 +144,37 @@ export const ProjectsSection = () => {
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title} demo`}
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <ExternalLink size={20} />
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Open ${project.title} source code`}
-                      className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    >
-                      <Github size={20} />
-                    </a>
+                  <div className="flex gap-3">
+                    {project.demoUrl === "#" && project.githubUrl === "#" ? (
+                      <span className="border border-dashed border-border px-2 py-1 font-mono text-[10px] uppercase text-muted-foreground">
+                        Coming soon
+                      </span>
+                    ) : (
+                      <>
+                        {project.demoUrl !== "#" && (
+                          <a
+                            href={project.demoUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${project.title} demo (opens in new tab)`}
+                            className="-m-1 p-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                          >
+                            <ExternalLink size={20} />
+                          </a>
+                        )}
+                        {project.githubUrl !== "#" && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            aria-label={`Open ${project.title} source code (opens in new tab)`}
+                            className="-m-1 p-1 text-foreground/80 hover:text-primary transition-colors duration-300"
+                          >
+                            <Github size={20} />
+                          </a>
+                        )}
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -178,6 +190,7 @@ export const ProjectsSection = () => {
             href="https://github.com/LamVu22"
           >
             Continue on GitHub <ArrowRight size={16} />
+            <span className="sr-only"> (opens in new tab)</span>
           </a>
         </div>
       </div>

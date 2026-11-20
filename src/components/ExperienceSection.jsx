@@ -100,7 +100,7 @@ const CompanyMark = ({ experience }) => (
     {experience.logo ? (
       <img
         src={experience.logo}
-        alt={`${experience.company} logo`}
+        alt=""
         className="h-full w-full object-contain"
       />
     ) : experience.isLoading ? (
@@ -152,6 +152,7 @@ export const ExperienceSection = () => {
               className="experience-entry relative grid gap-7 border-b border-border py-10 first:pt-0 last:border-b-0 last:pb-0 md:grid-cols-[0.38fr_0.62fr] md:gap-0"
             >
               <span
+                aria-hidden="true"
                 className={`absolute left-[14px] z-10 h-3 w-3 rounded-full border-[3px] border-background md:left-[calc(38%_-_5px)] ${experience.nodeClass} ${
                   index === 0 ? "top-1" : "top-12"
                 }`}

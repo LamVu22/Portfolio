@@ -16,18 +16,19 @@
   --color-accent: hsl(var(--accent));
   --color-coral: hsl(var(--coral));
   --color-status: hsl(var(--status));
+  --color-coral-text: hsl(var(--coral-text));
+  --color-accent-text: hsl(var(--accent-text));
+  --color-status-text: hsl(var(--status-text));
 
   --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
   --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
-  --animate-meteor: meteor 5s linear infinite;
   --animate-skill-belt: skill-belt 34s linear infinite;
   --animate-skill-belt-reverse: skill-belt-reverse 34s linear infinite;
 
@@ -40,15 +41,6 @@
       transform: translateY(-10px);
     }
   }
-  @keyframes pulse-subtle {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.8;
-    }
-  }
   @keyframes fade-in {
     from {
       opacity: 0;
@@ -57,19 +49,6 @@
     to {
       opacity: 1;
       transform: translateY(0);
-    }
-  }
-  @keyframes meteor {
-    0% {
-      transform: rotate(215deg) translateX(0);
-      opacity: 1;
-    }
-    70% {
-      opacity: 1;
-    }
-    100% {
-      transform: rotate(215deg) translateX(-500px);
-      opacity: 0;
     }
   }
   @keyframes skill-belt {
@@ -97,7 +76,7 @@
 
     --card: 0 0% 100%;
 
-    --primary: 187 100% 32%;
+    --primary: 187 100% 25%;
     --primary-foreground: 210 40% 98%;
     --muted-foreground: 215 14% 38%;
     --secondary: 190 28% 94%;
@@ -105,6 +84,9 @@
     --accent: 44 100% 63%;
     --coral: 6 100% 67%;
     --status: 145 64% 40%;
+    --coral-text: 6 100% 41%;
+    --accent-text: 44 100% 28%;
+    --status-text: 145 64% 30%;
 
     --border: 190 18% 80%;
   }
@@ -116,13 +98,16 @@
     --card: 220 14% 10%;
 
     --primary: 187 84% 50%;
-    --primary-foreground: 213 31% 91%;
+    --primary-foreground: 220 16% 7%;
     --muted-foreground: 215 13% 66%;
     --secondary: 220 12% 14%;
     --secondary-foreground: 210 20% 94%;
     --accent: 43 96% 58%;
     --coral: 6 88% 67%;
     --status: 145 65% 54%;
+    --coral-text: 6 88% 67%;
+    --accent-text: 43 96% 58%;
+    --status-text: 145 65% 54%;
 
     --border: 218 13% 23%;
   }
@@ -412,21 +397,6 @@
   transform-origin: 50% 0%;
 }
 
-.contact-field input {
-  transition:
-    border-color 180ms ease,
-    box-shadow 180ms ease,
-    background-color 180ms ease;
-}
-
-.contact-field-name input {
-  animation: name-field-click 8.4s ease-in-out infinite;
-}
-
-.contact-field-email input {
-  animation: email-field-click 8.4s ease-in-out infinite;
-}
-
 .typing-station {
   position: absolute;
   top: 4.9rem;
@@ -527,12 +497,10 @@
 }
 
 .contact-form-animation:hover .form-journey-pointer,
-.contact-form-animation:hover .contact-field input,
 .contact-form-animation:hover .typing-station,
 .contact-form-animation:hover .typing-key,
 .contact-form-animation:hover .typing-hand,
 .contact-form-animation:focus-within .form-journey-pointer,
-.contact-form-animation:focus-within .contact-field input,
 .contact-form-animation:focus-within .typing-station,
 .contact-form-animation:focus-within .typing-key,
 .contact-form-animation:focus-within .typing-hand {
@@ -699,38 +667,6 @@
   }
 }
 
-@keyframes name-field-click {
-  0%,
-  8%,
-  14%,
-  100% {
-    border-color: hsl(var(--border));
-    background: hsl(var(--background));
-    box-shadow: none;
-  }
-  11% {
-    border-color: hsl(var(--primary));
-    background: hsl(var(--primary) / 0.06);
-    box-shadow: 3px 3px 0 hsl(var(--accent));
-  }
-}
-
-@keyframes email-field-click {
-  0%,
-  41%,
-  47%,
-  100% {
-    border-color: hsl(var(--border));
-    background: hsl(var(--background));
-    box-shadow: none;
-  }
-  44% {
-    border-color: hsl(var(--coral));
-    background: hsl(var(--coral) / 0.06);
-    box-shadow: 3px 3px 0 hsl(var(--accent));
-  }
-}
-
 @keyframes keyboard-popup {
   0%,
   13%,
@@ -804,18 +740,6 @@
   }
 }
 
-@utility star {
-  @apply absolute rounded-full bg-white;
-  display: none;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
-}
-
-@utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  display: none;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
-}
-
 @utility ai-network {
   @apply absolute inset-0;
   background-image:
@@ -840,11 +764,6 @@
     rgba(14, 165, 233, 0.35),
     transparent
   );
-}
-
-.dark .star,
-.dark .meteor {
-  display: block;
 }
 
 .dark .ai-network {

@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { Pause, Play } from "lucide-react";
+
 const skillBelts = [
   {
     label: "Languages + Data",
@@ -22,7 +25,7 @@ const skillBelts = [
   },
   {
     label: "AI + Product Stack",
-    labelClass: "border-coral bg-coral/10 text-coral",
+    labelClass: "border-coral bg-coral/10 text-coral-text",
     reverse: true,
     items: [
       "TensorFlow",
@@ -66,18 +69,18 @@ const BeltGroup = ({ belt, groupIndex }) => (
   </div>
 );
 
-const SkillBelt = ({ belt }) => {
+const SkillBelt = ({ belt, isPaused }) => {
   return (
     <div className="group relative overflow-hidden border-y border-border/70 bg-background py-4">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-background to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-background to-transparent" />
 
       <div
-        className={
-          belt.reverse
-            ? "flex w-max animate-skill-belt-reverse group-hover:[animation-play-state:paused]"
-            : "flex w-max animate-skill-belt group-hover:[animation-play-state:paused]"
-        }
+        className={`flex w-max ${
+          belt.reverse ? "animate-skill-belt-reverse" : "animate-skill-belt"
+        } group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] ${
+          isPaused ? "[animation-play-state:paused]" : ""
+        }`}
       >
         {[0, 1].map((groupIndex) => (
           <BeltGroup
@@ -92,6 +95,8 @@ const SkillBelt = ({ belt }) => {
 };
 
 export const SkillsSection = () => {
+  const [isPaused, setIsPaused] = useState(false);
+
   return (
     <section id="skills" className="relative py-24">
       <div className="container mx-auto max-w-5xl px-4 text-center">
@@ -101,11 +106,20 @@ export const SkillsSection = () => {
         <h2 className="mb-4 text-3xl font-bold md:text-4xl">
           Tools I reach for <span className="text-primary">often</span>
         </h2>
+        <button
+          type="button"
+          onClick={() => setIsPaused((prev) => !prev)}
+          aria-pressed={isPaused}
+          aria-label="Pause skills animation"
+          className="inline-flex items-center justify-center border border-border bg-background/80 p-2 font-mono text-xs uppercase text-muted-foreground transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+        >
+          {isPaused ? <Play size={16} aria-hidden="true" /> : <Pause size={16} aria-hidden="true" />}
+        </button>
       </div>
 
       <div className="mt-12 space-y-4">
         {skillBelts.map((belt) => (
-          <SkillBelt key={belt.label} belt={belt} />
+          <SkillBelt key={belt.label} belt={belt} isPaused={isPaused} />
         ))}
       </div>
     </section>

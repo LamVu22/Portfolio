@@ -75,6 +75,7 @@ export const HeroSection = () => {
               className="lab-button"
             >
               <Github className="h-4 w-4" /> GitHub
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           </div>
 
@@ -93,16 +94,16 @@ export const HeroSection = () => {
         </div>
 
         <div className="relative mx-auto flex w-full max-w-[590px] items-center justify-center lg:min-h-[650px]">
-          <div className="avatar-orbit absolute left-[8%] top-[12%] h-[76%] w-[82%] rounded-full border border-dashed border-primary/30" />
+          <div className="avatar-orbit absolute left-[8%] top-[12%] h-[76%] w-[82%] rounded-full border border-dashed border-primary/30" aria-hidden="true" />
           <div className="absolute right-0 top-[4%] z-30 hidden w-48 border border-border bg-background/90 p-3 text-left backdrop-blur-sm sm:block">
             <div className="mb-3 flex items-center justify-between font-mono text-[10px] uppercase text-muted-foreground">
               <span>Runtime</span>
               <CircleDot className="h-3 w-3 text-status" />
             </div>
             <div className="space-y-2 font-mono text-xs">
-              <p className="flex justify-between"><span>RAG</span><span className="text-status">READY</span></p>
-              <p className="flex justify-between"><span>AGENTS</span><span className="text-status">READY</span></p>
-              <p className="flex justify-between"><span>EVALS</span><span className="text-accent">LEARNING</span></p>
+              <p className="flex justify-between"><span>RAG</span><span className="text-status-text">READY</span></p>
+              <p className="flex justify-between"><span>AGENTS</span><span className="text-status-text">READY</span></p>
+              <p className="flex justify-between"><span>EVALS</span><span className="text-accent-text">LEARNING</span></p>
             </div>
           </div>
 
@@ -110,14 +111,14 @@ export const HeroSection = () => {
             type="button"
             onClick={cycleTransmission}
             className="avatar-stage group relative z-10 w-[84%] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
-            aria-label="Cycle through messages from Lam"
+            aria-label="Show next message"
           >
             <img
               src={portrait}
               alt="Illustrated portrait of Lam Vu at his workspace"
               className="avatar-idle relative z-10 aspect-square w-full select-none rounded-sm border border-border object-cover shadow-xl transition-transform duration-300 group-hover:-translate-y-1"
             />
-            <span className="absolute -bottom-8 -left-7 z-20 max-w-[280px] border border-border bg-background/95 p-4 text-left shadow-lg backdrop-blur-sm max-sm:-bottom-20 max-sm:left-1/2 max-sm:w-[92%] max-sm:-translate-x-1/2">
+            <span aria-hidden="true" className="absolute -bottom-8 -left-7 z-20 max-w-[280px] border border-border bg-background/95 p-4 text-left shadow-lg backdrop-blur-sm max-sm:-bottom-20 max-sm:left-1/2 max-sm:w-[92%] max-sm:-translate-x-1/2">
               <span className="mb-2 flex items-center gap-2 font-mono text-[10px] uppercase text-primary">
                 <Bot className="h-3.5 w-3.5" />
                 {transmissions[activeTransmission].label}
@@ -130,6 +131,10 @@ export const HeroSection = () => {
               </span>
             </span>
           </button>
+          <p className="sr-only" aria-live="polite">
+            {transmissions[activeTransmission].label}:{" "}
+            {transmissions[activeTransmission].message}
+          </p>
 
           <Braces className="data-float absolute left-[3%] top-[8%] h-7 w-7 text-accent" />
         </div>
