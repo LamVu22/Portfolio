@@ -12,9 +12,11 @@ const experiences = [
     role: "Agentic AI Developer",
     dates: "Present",
     location: "Santa Clara, California",
-    isLoading: true,
     nodeClass: "bg-accent",
-    highlights: [],
+    highlights: [
+      "Work on improving and integrating open-sourced agentic software stack",
+      "Run benchmark tests on local workstation with different LLM models",
+    ],
     tools: [],
   },
   {
